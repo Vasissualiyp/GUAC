@@ -201,6 +201,8 @@ path_to_snaps = os.path.join(path, sim, output)
 snapshot_num_digits = 3
 
 snaps_range = find_snapshot_range(path_to_snaps)
+print(f"Path to snapshots: {path_to_snaps}")
+print(f"Snaps range: {snaps_range}")
 start_snap = snaps_range['first_id']
 last_snap = snaps_range['last_id']
 
@@ -277,7 +279,7 @@ if first_star_id != -1:
         max_age_idx = np.where(part_ids == first_star_id)[0][0]
         custom_pos = get_first_star_pos(coords, coords, max_age_idx, sphere_r)
         tracked_IDs = get_tracked_parts_ids(coords, custom_pos, part_ids, sphere_r)
-        if len(tracked_IDs) <= 1:
+        if len(tracked_IDs) < 1:
             raise ValueError("Something is wrong, no gas particles were found within {sphere_r} of the particle in the snapshot")
         print(f"Found {len(tracked_IDs)} trackable gas particles in the previous snapshot!")
 

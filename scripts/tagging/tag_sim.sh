@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
 PATH_TO_SIMS="/fs/lustre/scratch/vpustovoit/SHIVAN/CCA_DATA/"
+PATH_TO_SIMS="/fs/lustre/scratch/vpustovoit/SHIVAN/TRILLIUM_DATA/"
+PATH_TO_SIMS="/fs/lustre/scratch/vpustovoit/SHIVAN/ICs/m12/"
 SPHERE_SIZE="0.1" # Size of the refinement sphere, in kpc 
 OUTPUT_DIR=0 # Set to 1 if directory structure is like PATH/m12f/output/snapshot_000.hdf5
-SIM_NAMES="m12f m12i m12m m12q" # List of sims for which to run the code
-#SIM_NAMES="m12i" # List of sims for which to run the code
+SIM_NAMES=$(ls $PATH_TO_SIMS) # List of sims for which to run the code
+SIM_NAMES="m12i" # List of sims for which to run the code
+echo $SIM_NAMES
 
 
 ###################
